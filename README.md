@@ -4,4 +4,4 @@
 I use the [Corne v4.1 keyboard from foostan]() with my own custom layout. It uses the TTC silent bluish white switches with custom keycaps from [Yuzu](https://yuzukeycaps.com/).
 
 ## Keyboard layout
-The rabbit hole of custom keyboard layouts is fascinating. If you're wondering why R is on the thumb, backspace is on the middle finger, or what the hell a "Qu" button is, then jump [down with me](custom_layout.md).
+I'm using a modified version of [Enthium](https://github.com/sunaku/enthium/releases/tag/v7). Read about the changes I made [here](custom_layout.md).
