@@ -70,7 +70,7 @@ QU_Q,GUI_T(KC_S),ALT_T(KC_N),CTL_T(KC_T),SFT_T(KC_L), KC_F, KC_MPLY, KC_VOLD,DK_
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_V,    KC_B,    KC_G,    KC_H,    KC_J,                      DK_EQL,  KC_DOT,  KC_BSPC, DK_SLSH, DK_QUOT,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                CW_TOGG, UNDS_NUM, LT(NAV, KC_SPC),    LT(SYM, KC_R), LT(SYM_OLD, KC_ENT), XXXXXXX
+                                CW_TOGG, UNDS_NUM, LT(NAV, KC_SPC),    LT(SYM, KC_R), LT(SYM_OLD, KC_ENT), KC_ESC
                                       //`--------------------------'  `--------------------------'
   ),
 
