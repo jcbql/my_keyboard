@@ -25,8 +25,6 @@ enum layers {
     NAV,
     SYM,
     NUM,
-    GUI,
-    SYM_OLD
 };
 
 enum custom_keycodes {
@@ -37,7 +35,7 @@ enum custom_keycodes {
 };
 
 // Layer tap definitions for complex layer tapping.
-#define UNDS_NUM LT(NUM, KC_0) // Underscore when pressed and GUI layer when held
+#define UNDS_NUM LT(NUM, KC_0) // Underscore when pressed and NUM layer when held
 #define SFT_EQ SFT_T(KC_1) // Equalsign when pressed and shift when held
 #define QU_Q LT(0, KC_Q) // Send Qu when pressed and Q when held
 
@@ -70,7 +68,7 @@ QU_Q,GUI_T(KC_S),ALT_T(KC_N),CTL_T(KC_T),SFT_T(KC_L), KC_F, KC_MPLY, KC_VOLD,DK_
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        KC_TAB,    KC_V,    KC_B,    KC_G,    KC_H,    KC_J,                      DK_EQL,  KC_DOT,  KC_BSPC, DK_SLSH, DK_QUOT,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                CW_TOGG, UNDS_NUM, LT(NAV, KC_SPC),    LT(SYM, KC_R), LT(SYM_OLD, KC_ENT), KC_ESC
+                                CW_TOGG, UNDS_NUM, LT(NAV, KC_SPC),    LT(SYM, KC_R), KC_ENT, KC_ESC
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -82,7 +80,7 @@ QU_Q,GUI_T(KC_S),ALT_T(KC_N),CTL_T(KC_T),SFT_T(KC_L), KC_F, KC_MPLY, KC_VOLD,DK_
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), C(KC_Y),                   A(KC_LEFT), KC_HOME, _______,  KC_END,A(KC_RGHT), _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, _______,    _______,  LT(NUM, KC_ENT), KC_F11
+                                          XXXXXXX, _______, _______,    _______,  _______, KC_F11
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -94,19 +92,7 @@ QU_Q,GUI_T(KC_S),ALT_T(KC_N),CTL_T(KC_T),SFT_T(KC_L), KC_F, KC_MPLY, KC_VOLD,DK_
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______,   CARET, DK_SLSH, DK_ASTR, DK_BSLS,   TILDE,                      DK_PIPE, DK_COLN, _______,  DK_DLR,   DK_AT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                 XXXXXXX, _______,  LT(NUM, KC_SPC),    _______,  LT(NUM, KC_ENT), XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-    [GUI] = LAYOUT_split_3x6_3_ex2(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, G(KC_6), G(KC_7), G(KC_8), G(KC_9), G(KC_0), XXXXXXX,      BL_UP, G(KC_J), G(KC_L), G(KC_UP), XXXXXXX, C(DK_AE), G(KC_DEL),
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, G(KC_T), G(KC_S), G(KC_R), G(KC_R), G(KC_D), BL_TOGG,    BL_DOWN, XXXXXXX, G(KC_LEFT), G(KC_DOWN), G(KC_RGHT), XXXXXXX, G(KC_W),
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5),                      G(KC_P), C(KC_1), C(KC_2), C(KC_3), C(DK_OSTR), _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT, XXXXXXX, _______,    KC_LALT, G(KC_ENT), XXXXXXX
+                                 XXXXXXX, _______,  LT(NUM, KC_SPC),    _______,  _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -119,18 +105,6 @@ XXXXXXX,KC_LGUI,ALT_T(DK_MINS),CTL_T(DK_PLUS),SFT_EQ,XXXXXXX,KC_MPLY,   KC_VOLD,
       _______, XXXXXXX, DK_SLSH, DK_ASTR, DK_COLN, XXXXXXX,                      XXXXXXX,    KC_1,    KC_2,    KC_3, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, _______, _______,       KC_0, _______, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-    [SYM_OLD] = LAYOUT_split_3x6_3_ex2(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, S(KC_4), DK_LABK, DK_RABK, DK_DQUO,  DK_GRV, KC_MUTE,    KC_VOLU, DK_AMPR, DK_SCLN, DK_LCBR, DK_RCBR, DK_PERC, _______,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, DK_EXLM, DK_MINS, DK_PLUS,  DK_EQL, DK_HASH, KC_MPLY,    KC_VOLD, DK_PIPE, DK_COLN, DK_LPRN, DK_RPRN, DK_QUES, KC_GRAVE,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, DK_CIRC, DK_SLSH, DK_ASTR, DK_BSLS, XXXXXXX,                      DK_TILD,  DK_DLR, DK_LBRC, DK_RBRC,   DK_AT, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                 XXXXXXX, _______,  LT(NUM, KC_SPC),    _______,  LT(NUM, KC_ENT), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
