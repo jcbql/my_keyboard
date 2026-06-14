@@ -1,4 +1,4 @@
-DEFAULT_FOLDER = crkbd/rev1
+DEFAULT_FOLDER = crkbd/rev4_1/standard
 REPEAT_KEY_ENABLE = yes
 COMBO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
