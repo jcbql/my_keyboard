@@ -198,14 +198,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return true;
     case QU_Q:
+      uint8_t mods = 0x0;
+      if (is_caps_word_on()) {
+        mods = MOD_BIT(KC_LSFT);
+      }
       if (record->tap.count > 0) { // Key is being tapped
         if (record->event.pressed) {
-            tap_code16(KC_Q);
-            tap_code16(KC_U);
+          tap_code16(KC_Q | (mods << 8));
+          tap_code16(KC_U | (mods << 8));
         }
       } else { // Key is being held
         if (record->event.pressed) {
-          tap_code16(KC_Q);
+          tap_code16(KC_Q | (mods << 8));
         }
       }
       return false;
