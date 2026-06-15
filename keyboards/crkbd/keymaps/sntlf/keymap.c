@@ -38,6 +38,7 @@ enum custom_keycodes {
 #define UNDS_NUM LT(NUM, KC_0) // Underscore when pressed and NUM layer when held
 #define SFT_EQ SFT_T(KC_1) // Equalsign when pressed and shift when held
 #define QU_Q LT(0, KC_Q) // Send Qu when pressed and Q when held
+#define REP_DOT LT(0, KC_DOT) // Send Repeat when pressed and period when held
 
 // Combos
 const uint16_t PROGMEM ae_combo[] = {KC_U, KC_O, COMBO_END};
@@ -66,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
 QU_Q,GUI_T(KC_S),ALT_T(KC_N),CTL_T(KC_T),SFT_T(KC_L), KC_F, KC_MPLY, KC_VOLD,DK_COMM,SFT_T(KC_A),CTL_T(KC_E),ALT_T(KC_I),GUI_T(KC_C),KC_W,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_TAB,    KC_V,    KC_B,    KC_G,    KC_H,    KC_J,                      DK_EQL,  KC_DOT,  KC_BSPC, DK_SLSH, DK_QUOT,  KC_DEL,
+       KC_TAB,    KC_V,    KC_B,    KC_G,    KC_H,    KC_J,                      DK_EQL,  REP_DOT,  KC_BSPC, DK_SLSH, DK_QUOT,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                 CW_TOGG, UNDS_NUM, LT(NAV, KC_SPC),    LT(SYM, KC_R), KC_ENT, KC_ESC
                                       //`--------------------------'  `--------------------------'
@@ -163,6 +164,13 @@ void housekeeping_task_user(void) {
   }
 }
 
+// Repeat key configuration
+bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
+                            uint8_t* remembered_mods) {
+  if (keycode == REP_DOT) { return false; } // Don't remember own key press as last key
+  return true;
+}
+
 
 // Processing keys
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -178,6 +186,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       clear_recent_keys();
       return false;
     }
+  }
+
+  // Caps Word does not automatically work with tap/hold keys
+  uint8_t maybe_shift = 0x0;
+  if (is_caps_word_on()) {
+    maybe_shift = MOD_BIT(KC_LSFT);
   }
 
   switch (keycode) {
@@ -198,18 +212,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return true;
     case QU_Q:
-      uint8_t mods = 0x0;
-      if (is_caps_word_on()) {
-        mods = MOD_BIT(KC_LSFT);
-      }
       if (record->tap.count > 0) { // Key is being tapped
         if (record->event.pressed) {
-          tap_code16(KC_Q | (mods << 8));
-          tap_code16(KC_U | (mods << 8));
+          tap_code16(KC_Q | (maybe_shift << 8));
+          tap_code16(KC_U | (maybe_shift << 8));
         }
       } else { // Key is being held
         if (record->event.pressed) {
-          tap_code16(KC_Q | (mods << 8));
+          tap_code16(KC_Q | (maybe_shift << 8));
+        }
+      }
+      return false;
+    case REP_DOT:
+      if (record->tap.count > 0) { // Key is being tapped
+        repeat_key_invoke(&record->event);  // Repeat the last key.
+      } else { // Key is being held
+        if (record->event.pressed) {
+          tap_code16(KC_DOT);
+          set_last_keycode(KC_DOT);
         }
       }
       return false;
