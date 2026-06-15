@@ -164,7 +164,7 @@ void housekeeping_task_user(void) {
   }
 }
 
-// Repeat key configuration
+// Repeat key configuration. https://getreuer.info/posts/keyboards/faqs/index.html#layer-tap-repeat-key
 bool remember_last_key_user(uint16_t keycode, keyrecord_t* record,
                             uint8_t* remembered_mods) {
   if (keycode == REP_DOT) { return false; } // Don't remember own key press as last key
