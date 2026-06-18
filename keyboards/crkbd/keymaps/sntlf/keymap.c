@@ -178,6 +178,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       clear_recent_keys();
       return false;
     }
+    if (recent[RECENT_SIZE-3] == KC_G &&
+        recent[RECENT_SIZE-2] == KC_H &&
+        recent[RECENT_SIZE-1] == KC_G) {
+      tap_code(KC_T);
+      clear_recent_keys();
+      return false;
+    }
   }
 
   switch (keycode) {
