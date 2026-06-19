@@ -1,4 +1,5 @@
-These two posts are an excellent starting point for the keyboard layout rabbit hole:
+These three posts are an excellent starting point for the keyboard layout rabbit hole:
+- [The keyboard layouts doc](https://docs.google.com/document/d/1W0jhfqJI2ueJ2FNseR4YAFpNfsUM-_FlREHbpNGmC2o)
 - [Tour of split ergo keyboards](https://getreuer.info/posts/keyboards/tour/index.html)
 - [A guide to alt keyboard layouts (why, how, which one?)](https://getreuer.info/posts/keyboards/alt-layouts/index.html)
 
@@ -26,7 +27,7 @@ v s n t h k  , a e i c b
 After fiddling with the cyanophage's fantastic [Keyboard Layout Stats](https://cyanophage.github.io/) website, I came up with the following changes.
 
 ### Swap B and W (and P)
-By swapping B and W, you can completely remove the WN SFB. It's -0.05% SFB for slightly higher left pinky usage.
+By swapping B and W, you can completely remove the WN SFB. It's -0.05% SFB for slightly higher right pinky usage.
 
 After that I also swapped P and B since it's more comfortable for me to reach up and P has higher usage than B.
 
@@ -75,6 +76,24 @@ q s n t l f  , a e i c w
              r
 ```
 
-### The final stretch
-- Backspace is often repeatedly pressed. Why not use the strongest finger?
-- The "Qu" button writes "qu" when pressed and "q" when held. In more than 92% percent of cases Q is followed by U [source](https://www.petercollingridge.co.uk/blog/language/analysing-english/bigrams/).
+### Backspace with OE
+Backspace is often pressed repeatedly. The worst fingers at repeated presses are the pinky and the thumb; yet these are the most commonly used. Why not use the strongest finger instead?
+
+We often place the least common punctuation with OE to limit SFBs. However, there is no need to worry about SFBs with the placement of backspace. Nobody ever types `e backspace` in quick succession on purpose. 
+
+I actually can't see any reason to place any other key than backspace with OE.
+
+```
+  x p d m k  - u o y z
+q s n t l f  , a e i c w
+  v b g h j  = . B / '
+             r
+```
+(B=Backspace)
+
+### The final niceties
+- My Q key writes "qu" when pressed and "q" when held. In more than 92% percent of cases Q is followed by U [source](https://www.petercollingridge.co.uk/blog/language/analysing-english/bigrams/).
+- I have an adaptive key that turns `ghg` into `ght` to remove a common SFS.
+
+## SNTLF
+![SNTLF](imgs/img_keyboard_cropped_tight.jpg)
