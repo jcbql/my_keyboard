@@ -12,7 +12,7 @@ As my Corne arrived sooner rather than later, I decided to go the "safe" route a
 
 After nearly half a year of practice and reaching a typing speed above 60 words-per-minute (wpm) with Colemak DH, I wanted more. I was especially intrigued by putting a letter on a thumb key. One of the advantages of that a split keyboard unlocks.
 
-## How the SNTLF layout came to be
+## How the Sunflower layout came to be
 I was mostly interested in the [Enthium](https://github.com/sunaku/enthium) and [Hands Down Promethium](https://www.reddit.com/r/KeyboardLayouts/comments/1g66ivi/hands_down_promethium_snth_meets_hd_silverengram/) layout. Putting the vowels on the index, middle, and ring fingers appealed much more to me than the Galium/Graphite vowel blocks.
 
 I started with a flipped [Enthium v7 layout](https://github.com/sunaku/enthium/releases/tag/v7) as shown below. I flipped it as I was already used to having the vowels on the right hand from Colemak DH. I also put R on the right hand as I'm used to using space with the left thumb.
@@ -95,5 +95,5 @@ q s n t l f  , a e i c w
 - My Q key writes "qu" when pressed and "q" when held. In more than 92% percent of cases Q is followed by U [source](https://www.petercollingridge.co.uk/blog/language/analysing-english/bigrams/).
 - I have an adaptive key that turns `ghg` into `ght` to remove a common SFS.
 
-## SNTLF
-![SNTLF](imgs/img_keyboard_cropped_tight.jpg)
+## Sunflower
+![Sunflower](imgs/img_keyboard_cropped_tight.jpg)
